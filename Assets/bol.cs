@@ -13,6 +13,9 @@ public class bol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.R))
+        {
+            transform.position = new Vector3(1, 10, 9);
+        }
     }
 }
