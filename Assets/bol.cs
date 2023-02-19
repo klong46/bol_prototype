@@ -8,22 +8,26 @@ public class Bol : MonoBehaviour
     private Rigidbody rb;
     private bool touchingBackboard = false;
 
+    public Vector3 startingPos;
+    public int gravity;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        Physics.gravity = new Vector3(0, -18, 0);
+        Physics.gravity = new Vector3(0, -gravity, 0);
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.R))
         {
-            transform.position = new Vector3(1, 10, 9.7F);
-            rb.velocity = new Vector3(0, 0, 0);
+            transform.position = startingPos;
+            rb.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
         if (touchingBackboard && Input.GetKey(KeyCode.Space))
         {
-            rb.velocity = new Vector3(0, 0, -1);
+            rb.velocity = new Vector3(0, 0, -0.1F);
             touchingBackboard = false;
         }
     }
