@@ -2,20 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bol : MonoBehaviour
+public class Bol : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private Rigidbody rb;
+    private bool touchingBackboard = false;
+
     void Start()
     {
-        Physics.gravity = new Vector3(0, -12, 0);
+        rb = gameObject.GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0, -18, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.R))
         {
-            transform.position = new Vector3(1, 10, 9);
+            transform.position = new Vector3(1, 10, 9.7F);
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+        if (touchingBackboard && Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(0, 0, -1);
+            touchingBackboard = false;
+        }
+    }
+
+    private void OnCollisionEnter (Collision collisionInfo)
+    {
+        
+        if (collisionInfo.gameObject.name == "Backboard")
+        {
+            touchingBackboard = true;
         }
     }
 }
