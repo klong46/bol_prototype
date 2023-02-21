@@ -25,9 +25,9 @@ public class Bol : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.velocity = Vector3.zero;
         }
-        if (touchingBackboard && Input.GetKey(KeyCode.Space))
+        if (touchingBackboard && rb.velocity == Vector3.zero)
         {
-            rb.velocity = new Vector3(0, 0, -0.1F);
+            rb.velocity = new Vector3(0, 0, -0.2F);
             touchingBackboard = false;
         }
     }
