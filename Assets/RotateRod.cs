@@ -14,7 +14,7 @@ public class RotateRod : MonoBehaviour
 
     private void Start()
     {
-        Recenter();
+        rotateOrigin = transform.rotation.eulerAngles.y;
     }
 
     private void Update()
@@ -28,24 +28,15 @@ public class RotateRod : MonoBehaviour
         transform.eulerAngles = angles;
     }
 
-    private void Recenter()
-    {
-        mouseOrigin = mouseX;
-        rotateOrigin = transform.rotation.eulerAngles.y;
-    }
-
     private float CheckLimits(float rotateY)
     {
         if (direction == -1)
         {
-            if (rotateY > 180)
-            {
-                rotateY -= 360;
-            }
             rotateY = Mathf.Clamp(rotateY, -LIMIT, 0);
             if (rotateY == -LIMIT || rotateY == 0)
             {
-                Recenter();
+                mouseOrigin = mouseX;
+                rotateOrigin = rotateY;
             }
         }
         else
@@ -53,7 +44,8 @@ public class RotateRod : MonoBehaviour
             rotateY = Mathf.Clamp(rotateY, 0, LIMIT);
             if (rotateY == 0 || rotateY == LIMIT)
             {
-                Recenter();
+                mouseOrigin = mouseX;
+                rotateOrigin = rotateY;
             }
         }
         return rotateY;

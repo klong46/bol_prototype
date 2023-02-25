@@ -27,7 +27,10 @@ public class Bol : MonoBehaviour
         }
         if (touchingBackboard && rb.velocity == Vector3.zero)
         {
-            rb.velocity = new Vector3(0, 0, -0.2F);
+            //rb.velocity = new Vector3(0, 0, -0.5F);
+            Vector3 pos = transform.position;
+            pos.z -= 0.001F;
+            transform.position = pos;
             touchingBackboard = false;
         }
     }
@@ -35,7 +38,7 @@ public class Bol : MonoBehaviour
     private void OnCollisionEnter (Collision collisionInfo)
     {
         
-        if (collisionInfo.gameObject.name == "Backboard")
+        if (collisionInfo.gameObject.name == "Backboard" || collisionInfo.gameObject.name == "SeesawStartBase")
         {
             touchingBackboard = true;
         }

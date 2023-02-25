@@ -10,12 +10,12 @@ public class SeesawRotation : MonoBehaviour
     private float mouseOrigin;
     private float rotateOrigin;
     private float rotateAngle;
-    private readonly int LIMIT = 21;
+    private readonly int LIMIT = 25;
     private readonly int SCALE = 100;
 
     private void Start()
     {
-        Recenter();
+        rotateOrigin = transform.rotation.eulerAngles.x;
     }
 
     private void Update()
@@ -27,13 +27,6 @@ public class SeesawRotation : MonoBehaviour
         Vector3 angles = transform.rotation.eulerAngles;
         angles.x = rotateX;
         transform.eulerAngles = angles;
-    }
-
-    private void Recenter()
-    {
-        mouseOrigin = mouseX;
-        rotateOrigin = transform.rotation.eulerAngles.x;
-        
     }
 
     private float CheckLimits(float rotateX)
