@@ -45,7 +45,6 @@ public class Bol : MonoBehaviour
         }
         if(collisionInfo.gameObject.name == "SeesawStartBase")
         {
-            print("HUH");
             cam.ChangePos();
         }
     }
