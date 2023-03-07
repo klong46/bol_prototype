@@ -43,9 +43,13 @@ public class Bol : MonoBehaviour
         {
             touchingBackboard = true;
         }
-        if(collisionInfo.gameObject.name == "SeesawStartBase")
+        if (collisionInfo.gameObject.name == "SeesawStartBase")
         {
-            cam.ChangePos();
+            cam.ChangePos(1);
+        }
+        if (collisionInfo.gameObject.name == "SeesawEndBase")
+        {
+            cam.ChangePos(2);
         }
     }
 }

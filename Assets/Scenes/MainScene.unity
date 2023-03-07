@@ -396,6 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252015569}
   - component: {fileID: 252015570}
+  - component: {fileID: 252015571}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -410,15 +411,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252015568}
-  m_LocalRotation: {x: 0.0840306, y: 0.70209605, z: -0.0840306, w: 0.70209605}
-  m_LocalPosition: {x: 20.167204, y: 16.486242, z: -31.389675}
+  m_LocalRotation: {x: 0.5224985, y: 0, z: 0, w: 0.8526402}
+  m_LocalPosition: {x: 0, y: 27, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2105806049}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 13.65, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 63, y: 0, z: 0}
 --- !u!114 &252015570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +433,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+--- !u!95 &252015571
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252015568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e097634470cb4ee897e0a01266a4a4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &289705394
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477925726}
   m_LocalRotation: {x: -0, y: -0.002879689, z: -0, w: 0.9999959}
-  m_LocalPosition: {x: -0.1, y: 11.345, z: -0.9}
+  m_LocalPosition: {x: 0, y: 9.79, z: -0.042}
   m_LocalScale: {x: 2.387054, y: 2.387054, z: 2.387054}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -753,8 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e2f90e24be453e84dca00e2d20d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPos: {x: 0, y: 0, z: 0}
-  gravity: 0
+  startingPos: {x: 0, y: 9.8, z: 0}
+  gravity: 20
 --- !u!1 &561182519
 GameObject:
   m_ObjectHideFlags: 0
