@@ -6,6 +6,7 @@ public class MazeRotation : MonoBehaviour
 {
     public int direction;
     public float speed;
+    public bool onMaze;
     private float mouseX;
     private float mouseZ;
     private float mouseOriginX;
@@ -21,14 +22,18 @@ public class MazeRotation : MonoBehaviour
     {
         rotateOriginX = transform.rotation.eulerAngles.x;
         rotateOriginZ = transform.rotation.eulerAngles.z;
+        onMaze = false;
     }
 
     void Update()
     {
-        Vector3 angles = transform.rotation.eulerAngles;
-        angles.x = GetRotation(true);
-        angles.z = GetRotation(false);
-        transform.eulerAngles = angles;
+        if (onMaze)
+        {
+            Vector3 angles = transform.rotation.eulerAngles;
+            angles.x = GetRotation(true);
+            angles.z = GetRotation(false);
+            transform.eulerAngles = angles;
+        }
     }
 
     private float CheckLimits(float rotate, bool isX)
