@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateRod : MonoBehaviour
 {
     public int direction;
+    public bool onRods;
     private float mouseX;
     private float mouseOrigin;
     private float rotateOrigin;
@@ -15,17 +16,21 @@ public class RotateRod : MonoBehaviour
     private void Start()
     {
         rotateOrigin = transform.rotation.eulerAngles.y;
+        onRods = true;
     }
 
     private void Update()
     {
-        mouseX = Input.mousePosition.x;
-        rotateAngle = (mouseOrigin - mouseX)/SCALE;       
-        float rotateY = (rotateAngle * direction) + rotateOrigin;
-        rotateY = CheckLimits(rotateY);
-        Vector3 angles = transform.rotation.eulerAngles;
-        angles.y = rotateY;
-        transform.eulerAngles = angles;
+        if (onRods)
+        {
+            mouseX = Input.mousePosition.x;
+            rotateAngle = (mouseOrigin - mouseX) / SCALE;
+            float rotateY = (rotateAngle * direction) + rotateOrigin;
+            rotateY = CheckLimits(rotateY);
+            Vector3 angles = transform.rotation.eulerAngles;
+            angles.y = rotateY;
+            transform.eulerAngles = angles;
+        }
     }
 
     private float CheckLimits(float rotateY)

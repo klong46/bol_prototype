@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Camera cam;
     private Vector3 pos1 = new(0, 27, -18);
     private Vector3 rot1 = new(63, 0, 0);
 
@@ -16,15 +15,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        
-
         anim = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        transform.position = pos1;
-        transform.eulerAngles = rot1;
     }
 
     public void ChangePos(int moveNum)
